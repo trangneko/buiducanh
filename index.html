@@ -70,7 +70,18 @@
     $('nav a').on('click', function(event) {
         if (this.hash !== "") {
             event.preventDefault();
-
+            var target = $(this.hash);
+            $('html, body').animate(
+                {
+                    scrollTop: target.offset().top - 80
+                },
+                100
+            );
+        }
+    });
+    $('.arrow').on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
             var target = $(this.hash);
             $('html, body').animate(
                 {

@@ -9,22 +9,26 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#exp">Experiences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>  
 <header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#exp">Experiences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>    
+    <section id="home">
     <h1>Hello, I am <span>Bui Duc Anh</span>.<br>
         I’m a <span>Software Engineer</span> from <span>Vietnam</span>.</h1>
+    <div class="arrow-down">
+        <a href="#about" class="arrow"></a>
+    </div>           
+    </section>
 </header>
 
 <main>
-    <section id="about">
+    <section id="about" class="about">
         <div class="about__blocks"></div>
         <h2>Self-motivated, Problem Solver, Intellectual enthusiast</h2>
         <div class="about__columns">
@@ -35,20 +39,23 @@
 
     </section>
 
-    <section id="exp">
+    <section id="exp" class="exp">
+        <div class="arrow-up"></div>
         <h2>Technologies</h2>
         <div class="exp__blocks"></div>
     </section>
 
-    <section id="contact">
-        <div class="contact__titles">
-            <h1>Thanks!</h1>
-            <h2>Want to get in touch?</h2>
-        </div>
-        <div class="contact__sns">
-            <img src="img/social-linkedin.svg" alt="LinkedIn">
-            <img src="img/social-github.svg" alt="GitHub">
-            <img src="img/social-gmail.svg" alt="Gmail">
+    <section id="contact" >
+        <div class="contact">
+            <div class="contact__titles">
+                <h1>Thanks!</h1>
+                <h2>Want to get in touch?</h2>
+            </div>
+            <div class="contact__sns">
+                <img src="img/social-linkedin.svg" alt="LinkedIn">
+                <img src="img/social-github.svg" alt="GitHub">
+                <img src="img/social-gmail.svg" alt="Gmail">
+            </div>            
         </div>
     </section>
 </main>
@@ -56,6 +63,35 @@
 <footer>
     <p>&copy; 2023 Bui Duc Anh. All rights reserved.</p>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="genBlock.js"></script>
+<script>
+    $('nav ul li a[href="#home"]').parent().addClass('active')
+    $('nav a').on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
 
+            var target = $(this.hash);
+            $('html, body').animate(
+                {
+                    scrollTop: target.offset().top - 80
+                },
+                100
+            );
+        }
+    });
+    $(window).scroll(function() {
+        var scrollPos = $(document).scrollTop();
+
+        $('section').each(function() {
+            var sectionOffset = $(this).offset().top - 200;
+            if (scrollPos >= sectionOffset) {
+                var id = $(this).attr('id');
+                $('nav ul li').removeClass('active');
+                $('nav ul li a[href="#' + id + '"]').parent().addClass('active'); // Add active class to the corresponding list item
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -34,11 +34,11 @@ header section {
   position: relative;
 }
 header h1 {
+  font-size: 2rem;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%);
-  font-size: 3rem;
+  transform: translate(-50%, -50%);
 }
 header h1 span {
   color: #7B4AE2;
@@ -114,6 +114,7 @@ main {
 
 section {
   min-height: calc(100vh - 100px);
+  padding: 0 1rem;
 }
 
 .about {
@@ -124,25 +125,54 @@ section {
   display: flex;
   justify-content: center;
   gap: 3rem;
+  max-width: 900px;
+  margin: auto;
 }
 .about__block {
   width: 25%;
   border: solid 2px #7B4AE2;
   border-radius: 20px;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 .about__block__img {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
 }
 .about__block__img img {
   filter: invert(50%) sepia(62%) saturate(7099%) hue-rotate(243deg) brightness(90%) contrast(96%);
+  transition: transform 1s ease;
+}
+.about__block__img img:hover {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes spin {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
 }
 .about__block__name {
   text-align: center;
   font-size: 1.3rem;
 }
 .about h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-decoration: underline;
   text-align: center;
 }
@@ -169,8 +199,8 @@ section {
   border-right: 10px solid transparent;
   border-bottom: 20px solid #fff;
   position: absolute;
-  top: 9rem;
-  left: 43.2%;
+  top: -1rem;
+  left: -12px;
 }
 .exp h2 {
   width: 60%;
@@ -231,7 +261,7 @@ section {
   padding: 1rem 2rem;
   border-radius: 20px;
   margin: auto;
-  height: 100px;
+  flex-wrap: wrap;
 }
 .exp__img ul li {
   max-width: 70px;
@@ -280,5 +310,41 @@ section {
 footer {
   text-align: center;
   margin: 3rem 0;
+}
+
+@media screen and (max-width: 600px) {
+  .about__blocks {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about__block {
+    width: 50%;
+  }
+  .about__columns {
+    flex-direction: column;
+    gap: 0;
+  }
+  .exp h2 {
+    display: none;
+  }
+  .exp__blocks {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+  }
+  .exp__block {
+    width: auto;
+    margin-bottom: 1rem;
+  }
+  .exp__img {
+    width: auto;
+    padding-left: 0;
+    border-left: none;
+    border-bottom: solid 2px #fff;
+    padding-bottom: 1rem;
+  }
+  .exp .circle, .exp .arrow-up {
+    display: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

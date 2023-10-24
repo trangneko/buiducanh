@@ -72,6 +72,7 @@ function generateAboutBlocks(aboutData) {
 }
 function generateExpBlocks(expData) {
     const expContainer = $('#exp');
+    let isFirstItem = true;
 
     for (const key in expData) {
         if (expData.hasOwnProperty(key)) {
@@ -98,7 +99,10 @@ function generateExpBlocks(expData) {
                 techItem.html(`<img src="./img/${tech}.svg" alt="${tech}"><span class="label">${tech}</span>`);
                 techList.append(techItem);
             });
-
+            if (isFirstItem) {
+                expImg.append('<div class="arrow-up"></div>');
+                isFirstItem = false; // Set it to false to indicate it's no longer the first item
+            }
             expImg.append(techList, circle);
             
             expBlock.append(heading, descriptionList, foot);

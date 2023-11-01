@@ -18,13 +18,13 @@ const exp = {
         company: "FPT Japan",
         des: [
             "Implemented a restocking optimization algorithm that improved the performance of an AI system for Retail industry.",
-            "Implemented and deployed the system on Azure using Terraform.",
-            "Set up CI/CD pipeline on Azure Devops.",
+            "Implemented and deployed the system on Azure using Terraform and AWS using CloudFormation",
+            "Set up CI/CD pipeline on Azure DevOps and AWS Codepipeline.",
             "Simulated load testing to analyze the performance of systems"
         ],
         location: "Tokyo, Japan",
         time: "May. 2022 - Present",
-        tech: ["git", "azure","python","terraform","docker","kubernetes"]
+        tech: ["git", "azure", "aws", "python","CloudFormation", "terraform","docker","kubernetes"]
     },
     aei: {
         name: "AI Engineer Intern",
